@@ -4,7 +4,7 @@
 
 Dockerビルド
 
-1.  git clone https://github.com/YumiOotake/contact-form-test.git
+1.  git clone https://github.com/YumiOotake/mogitate-test.git
 2.  docker-compose up -d --build
 
 Laravel環境構築

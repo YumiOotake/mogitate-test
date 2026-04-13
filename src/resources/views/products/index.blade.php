@@ -8,12 +8,12 @@
     <div class="products-page">
         <div class="product__heading">
             <h1 class="product__heading-ttl">商品一覧</h1>
-            <a href="{{ route('store') }}" class="product__heading-button">
+            <a href="{{ route('create') }}" class="product__heading-button">
                 + 商品を追加
             </a>
         </div>
 
-        {{-- <nav class="product__nav">
+        <nav class="product__nav">
             <form action="{{ route('search') }}" method="get" class="product__search-form">
                 <div class="product__search-content">
                     <div class="product__search-item">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </form>
-            <div class="product__sort">
+            {{-- <div class="product__sort">
                 <h2 class="product__sort-title">価格順で表示</h2>
                 <form action="{{ route('sort') }}" method="get" class="product__sort-form">
                     <div class="product__sort-item">
@@ -40,12 +40,12 @@
                         </select>
                     </div>
                 </form>
-            </div>
-        </nav> --}}
+            </div> --}}
+        </nav>
 
         @forelse ($products as $product)
             <article class="product-card">
-                <a href="{{ route('show', $product) }}" class="product-card__link">
+                <a href="{{ route('show', ['productId' => $product->id]) }}" class="product-card__link">
                     <figure class="product-card__figure">
                         <div class="product-card__image">
                             <img src="{{ asset('storage/' . $product->image) }}" alt="" class="product-card__img">

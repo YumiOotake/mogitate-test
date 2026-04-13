@@ -12,12 +12,16 @@
             </a>
             <span class="product-form__title">&gt;{{ $product->name }}</span>
         </div>
-        <form action="{{ route('update', $product) }}" method="post" class="product-form__edit" enctype="multipart/form-data">
+        <form action="{{ route('update', ['productId' => $product->id]) }}" method="post" class="product-form__edit"
+            enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <div class="product-form__group">
+                <div class="product-form__image">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="" class="product-form__img">
+                </div>
                 <input class="product-form__input" type="file" name="image" id="image">
-                <div class="product-form__error-message">
+                <div class="product-form__error">
                     @error('image')
                         {{ $message }}
                     @enderror
@@ -29,7 +33,7 @@
                 </label>
                 <input class="product-form__input" type="text" name="name" id="name"
                     value="{{ old('name', $product->name) }}">
-                <div class="product-form__error-message">
+                <div class="product-form__error">
                     @error('name')
                         {{ $message }}
                     @enderror
@@ -39,9 +43,9 @@
                 <label class="product-form__label" for="price">
                     値段
                 </label>
-                <input class="product-form__input" type="number" name="price" id="price"
+                <input class="product-form__input" type="text" name="price" id="price"
                     value="{{ old('price', $product->price) }}">
-                <div class="product-form__error-message">
+                <div class="product-form__error">
                     @error('price')
                         {{ $message }}
                     @enderror
@@ -53,14 +57,14 @@
                 </label>
                 @foreach ($seasons as $season)
                     <label class="product-form__label" for="season_{{ $season->id }}">
-                        <input class="product-form__input" type="checkbox" name="season_id[]" id="season_{{ $season->id }}"
-                            value="{{ $season->id }}"
-                            {{ old('season_id', $product->season_id) == $season->id ? 'checked' : '' }}>
+                        <input class="product-form__input" type="checkbox" name="season_id[]"
+                            id="season_{{ $season->id }}" value="{{ $season->id }}"
+                            {{ in_array($season->id, old('season_id', $product->seasons->pluck('id')->toArray())) ? 'checked' : '' }}>
                         <span class="product-form__season">{{ $season->name }}</span>
                     </label>
                 @endforeach
-                <div class="product-form__error-message">
-                    @error('season')
+                <div class="product-form__error">
+                    @error('season_id')
                         {{ $message }}
                     @enderror
                 </div>
@@ -70,7 +74,7 @@
                     商品説明
                 </label>
                 <textarea class="product-form__textarea" name="description" id="description" cols="30" rows="10">{{ old('description', $product->description) }}</textarea>
-                <div class="product-form__error-message">
+                <div class="product-form__error">
                     @error('description')
                         {{ $message }}
                     @enderror
@@ -82,10 +86,12 @@
                 <button class="product-form__button-submit btn" type="submit">変更を保存</button>
             </div>
         </form>
-        <form action="{{ route('destroy', $product) }}" method="post" class="product-form__delete">
+        <form action="{{ route('destroy', ['productId' => $product->id]) }}" method="post" class="product-form__delete">
             @csrf
             @method('DELETE')
-            <img src="{{ asset('images/delete.png') }}" alt="delete-img" class="product-form__delete-image">
+            <button class="product-form__delete">
+                <img src="{{ asset('storage/images/delete.png') }}" alt="delete-img" class="product-form__delete-image">
+            </button>
         </form>
     </div>
 @endsection
