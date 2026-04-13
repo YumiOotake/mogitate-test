@@ -1,0 +1,29 @@
+.product__nav {
+    position: relative;
+}
+
+.product__sort-modal {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.product__sort-label {
+    font-size: 14px;
+    color: #555;
+}
+
+.product__sort-close {
+    color: #888;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1;
+}

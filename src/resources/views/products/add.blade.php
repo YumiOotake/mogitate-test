@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="product-form__group">
-                <label class="product-form__label" for="name">
+                <label class="product-form__label">
                     季節<span class="product-form__required">必須</span>
                     <span class="product-form__text">複数選択可</span>
                 </label>

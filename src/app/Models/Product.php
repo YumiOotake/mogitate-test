@@ -23,8 +23,27 @@ class Product extends Model
     public function seasons()
     {
         return $this->belongsToMany(Season::class, 'product_season')
-                    ->withTimestamps();
+            ->withTimestamps();
     }
 
-    
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('name', 'like', "%{$keyword}%");
+            });
+        }
+        return $query;
+    }
+
+    public function scopeSortByPrice($query, $sort)
+    {
+        if ($sort === 'price_desc') {
+            $query->orderBy('price', 'desc');
+        } elseif ($sort === 'price_asc') {
+            $query->orderBy('price', 'asc');
+        }
+
+        return $query;
+    }
 }

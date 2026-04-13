@@ -12,7 +12,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::query()
+            ->paginate(6);
 
         return view('products.index', compact('products'));
     }
@@ -80,8 +81,17 @@ class ProductController extends Controller
         Storage::disk('public')->delete($product->image);
 
         $product->delete();
-        $product->seasons()->detach($productId);
 
         return redirect()->route('index');
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::query()
+            ->keywordSearch($request->keyword)
+            ->sortByPrice($request->sort)
+            ->paginate(6);
+
+        return view('products.index', compact('products'));
     }
 }

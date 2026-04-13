@@ -24,10 +24,8 @@
                         <button class="product__search-button--submit btn" type="submit">検索</button>
                     </div>
                 </div>
-            </form>
-            {{-- <div class="product__sort">
-                <h2 class="product__sort-title">価格順で表示</h2>
-                <form action="{{ route('sort') }}" method="get" class="product__sort-form">
+                <div class="product__sort-content">
+                    <h2 class="product__sort-title">価格順で表示</h2>
                     <div class="product__sort-item">
                         <select name="sort" class="product__sort-select">
                             <option value="">価格で並び替え</option>
@@ -39,8 +37,16 @@
                             </option>
                         </select>
                     </div>
-                </form>
-            </div> --}}
+                </div>
+            </form>
+            @if (request('sort'))
+                <div class="product__sort-modal">
+                    <span class="product__sort-label">
+                        {{ request('sort') === 'price_desc' ? '高い順に表示' : '低い順に表示' }}
+                    </span>
+                    <a href="{{ route('search', request()->except('sort', 'page')) }}" class="product__sort-close">×</a>
+                </div>
+            @endif
         </nav>
 
         @forelse ($products as $product)
@@ -61,7 +67,7 @@
             <p class="product__empty">商品が見つかりませんでした</p>
         @endforelse
         <div class="product-content__paginate">
-            {{-- {{ $products->appends(request()->query())->links('vendor.pagination.custom') }} --}}
+            {{ $products->appends(request()->query())->links('vendor.pagination.custom') }}
         </div>
     </div>
 @endsection

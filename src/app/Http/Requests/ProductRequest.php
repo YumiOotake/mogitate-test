@@ -23,10 +23,12 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+        $imageRule = $this->method() === 'PATCH' ? 'nullable|mimes:jpeg,png' : 'required|mimes:jpeg,png';
+
         return [
             'name' => 'required',
             'price' => 'required|integer|min:0|max:10000',
-            'image' => 'required|mimes:jpeg,png',
+            'image' => $imageRule,
             'season_id' => 'required',
             'description' => 'required|max:120',
         ];

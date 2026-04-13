@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="product-form__group">
-                <label class="product-form__label" for="name">
+                <label class="product-form__label">
                     季節
                 </label>
                 @foreach ($seasons as $season)
@@ -89,7 +89,7 @@
         <form action="{{ route('destroy', ['productId' => $product->id]) }}" method="post" class="product-form__delete">
             @csrf
             @method('DELETE')
-            <button class="product-form__delete">
+            <button class="product-form__delete-button">
                 <img src="{{ asset('storage/images/delete.png') }}" alt="delete-img" class="product-form__delete-image">
             </button>
         </form>
