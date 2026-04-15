@@ -1,0 +1,105 @@
+.product-form__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form__error {
+    line-height: 1.5;
+    min-height: 1.5em;
+    font-size: 14px;
+    color: var(--color-red);
+    text-align: left;
+    margin-top: 10px;
+}
+
+.product-form__label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-form__input {
+    font-size: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.product-form__seasons {
+    display: flex;
+    gap: 16px;
+    padding: 5px;
+}
+
+
+.product-form__input--checkbox {
+    display: none;
+}
+
+.product-form__label--season {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--color-sub-text);
+}
+
+.product-form__label--season::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    flex-shrink: 0;
+}
+
+.product-form__input--checkbox:checked+
+.product-form__label--season::before {
+    background-color: var(--color-sub-text);
+    border-color: var(--color-white);
+    content: '✓';
+    color: var(--color-white);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-form__input--textarea {
+    font-size: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 10px;
+    height: 160px;
+    resize: none;
+}
+
+.product-form__button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-form__button-submit,
+.product-form__button-back {
+    width: 200px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px #0000001A;
+}
+
+.product-form__button-submit {
+    color: var(--color-sub-text);
+    background-color: var(--color-main);
+}
+
+.product-form__button-back {
+    display: block;
+    color: var(--color-sub-text);
+    background-color: var(--color-border);
+}

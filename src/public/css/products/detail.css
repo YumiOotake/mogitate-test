@@ -1,0 +1,49 @@
+.product-form__content {
+    max-width: 800px;
+    margin: 70px auto;
+    color: var(--color-sub-text);
+}
+
+.product-form__nav {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.product-form__button-index {
+    color: #0085FF;
+}
+
+.product-form__section {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.product-form__section-left {
+    width: 50%;
+}
+
+.product-form__image {
+    margin-bottom: 10px;
+}
+
+.product-form__section-right {
+    width: 50%;
+}
+
+.product-form__delete {
+    float: right;
+}
+
+.product-form__delete-button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.product-form__delete-image {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
