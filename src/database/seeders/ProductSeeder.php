@@ -96,9 +96,9 @@ class ProductSeeder extends Seeder
                 'description' => $param['description'],
             ]);
 
-            $seasonId = Season::whereIn('name', $param['seasons'])->pluck('id');
+            $seasonIds = Season::whereIn('name', $param['seasons'])->pluck('id');
 
-            $product->seasons()->attach($seasonId);
+            $product->seasons()->attach($seasonIds);
         }
     }
 }

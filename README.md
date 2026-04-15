@@ -15,16 +15,16 @@ Laravel環境構築
     cp .env.example .env
 
     以下を編集：
-    \```
+    ```
     DB_DATABASE=laravel_db
     DB_USERNAME=laravel_user
     DB_PASSWORD=laravel_pass
-    \```
+    ```
 
 4.  php artisan key:generate
 5.  php artisan migrate
 6.  php artisan db:seed
-7. php artisan storage:link
+7.  php artisan storage:link
 
 ## 使用技術(実行環境)
 
@@ -41,5 +41,5 @@ Laravel環境構築
 
 ## URL
 
-・開発環境：http://localhost/
+・開発環境：http://localhost/products
 ・phpMyAdmin：http://localhost:8080/

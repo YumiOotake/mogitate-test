@@ -29,7 +29,6 @@ class ProductController extends Controller
     public function update(ProductRequest $request, $productId)
     {
         $product = Product::findOrFail($productId);
-        $imagePath = $request->image;
 
         if ($request->hasFile('image')) {
             if ($product->image) {
