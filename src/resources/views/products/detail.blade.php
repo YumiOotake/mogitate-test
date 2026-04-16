@@ -21,7 +21,7 @@
                 <div class="product-form__section-left">
                     <div class="product-form__group">
                         <div class="product-form__image">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="" class="product-form__img">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="商品画像" class="product-form__img">
                         </div>
                         <input class="product-form__input--image" type="file" name="image" id="image">
                         <div class="product-form__error">

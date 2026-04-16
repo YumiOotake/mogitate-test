@@ -16,11 +16,13 @@ Laravel環境構築
 
     以下を編集：
     ```
+    DB_CONNECTION=mysql
+    DB_HOST=mysql
+    DB_PORT=3306
     DB_DATABASE=laravel_db
     DB_USERNAME=laravel_user
     DB_PASSWORD=laravel_pass
     ```
-
 4.  php artisan key:generate
 5.  php artisan migrate
 6.  php artisan db:seed

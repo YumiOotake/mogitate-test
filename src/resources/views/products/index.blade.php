@@ -58,7 +58,7 @@
                         <a href="{{ route('show', ['productId' => $product->id]) }}" class="product-card__link">
                             <figure class="product-card__figure">
                                 <div class="product-card__image">
-                                    <img src="{{ asset('storage/' . $product->image) }}" alt=""
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="商品画像"
                                         class="product-card__img">
                                 </div>
                                 <figcaption class="product-card__figcaption">
