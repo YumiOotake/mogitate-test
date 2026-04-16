@@ -30,14 +30,11 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($productId);
 
-        if ($request->hasFile('image')) {
-            if ($product->image) {
-                Storage::disk('public')->delete($product->image);
-            }
-            $imagePath = $request->file('image')->store('images', 'public');
-        } else {
-            $imagePath = $product->image;
+        if ($product->image) {
+            Storage::disk('public')->delete($product->image);
         }
+
+        $imagePath = $request->file('image')->store('images', 'public');
 
         $product->update([
             'name' => $request->name,
